@@ -17,7 +17,7 @@ let path = {
 		//ВНИМАНИЕ! ИСКЛЮЧАЕМ ДОП ФАЙЛЫ С СИМВОЛОМ _ - ЭТО СЛУЖЕБНЫЕ ФАЙЛЫ - ОТДЕЛЬНЫЕ ХЭДЕР, ФУТЕР
 		html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
 		css: source_folder + "/scss/main.scss",
-		js : source_folder + "/js/script.js",
+		js : source_folder + "/js/main.js",
 		img: source_folder + "/img/**/*.{jpg,png,ico,svg,webp,gif}",
 		fonts : source_folder + "/fonts/*.ttf",
 	},
