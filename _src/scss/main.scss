@@ -1,18 +1,55 @@
-@mixin font($font_name, $file_name, $weight, $style) {
-	@font-face {
-	font-family: $font_name;
-	font-display: swap;
-	src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
-	font-weight: #{$weight};
-	font-style: #{$style};
-	}
-}
-
 @import "fonts";
-
-$primCol: #444;
+@import "null_style";
+@import "config";
 
 body {
 	background-color: $primCol;
+	@include background;
 	color: #fff;
+	font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+	line-height: 1.5;
+}
+
+//Headings 
+h1,h2,h3 {
+	font-weight: 400;
+	&.lg-heading {
+		font-size: 6rem;
+	}
+	&.sm-heading {
+		margin-bottom: 2rem;
+		padding: 0.2rem 1rem;
+		background: rgba(lighten($primCol, 2), 0.5);
+	}
+}
+
+header {
+	position: fixed; //бургер всегда должен оставаться вверху страницы, даже когда мы скролим ее
+	z-index: 2;
+	width: 100%;
+}
+
+.text-secondary {
+	color: $secondCol;
+}
+
+main {
+	padding: 4rem;
+	height: 100%;
+	&#home {
+		overflow: hidden; // убираем скроллы
+		h1 {
+			margin-top: 20vh;
+		}
+	}
+	.icons {
+		margin-top: 1rem;
+		a {
+			padding: 0.4rem;
+			&:hover {
+				color: $secondCol;
+				@include easeOut; //замедление изменения цвета
+			}
+		}
+	}
 }
